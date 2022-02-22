@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GanpatUni_Pro.Models.Meeting>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Topic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting_Link)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting_StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting_EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meeting_Link)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meeting_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meeting_StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Meeting_EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.Address)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Meeting_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Meeting_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Meeting_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

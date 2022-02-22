@@ -1,0 +1,65 @@
+﻿@model IEnumerable<GanpatUni_Pro.Models.Submission>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Submission_Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Submission_Document)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assignment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Submission_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Submission_Document)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Enroll_No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assignment.Assignment_Title)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Submission_Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Submission_Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Submission_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@model GanpatUni_Pro.Models.Group_Transaction
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Group_Transaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="GroupTransaction_Id" />
+            <div class="form-group">
+                <label asp-for="Group_Id" class="control-label"></label>
+                <select asp-for="Group_Id" class="form-control" asp-items="ViewBag.Group_Id"></select>
+                <span asp-validation-for="Group_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student_Id" class="control-label"></label>
+                <select asp-for="Student_Id" class="form-control" asp-items="ViewBag.Student_Id"></select>
+                <span asp-validation-for="Student_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
